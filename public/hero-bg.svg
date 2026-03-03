@@ -1,0 +1,45 @@
+
+<svg width="1440" height="800" viewBox="0 0 1440 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1C20" />
+      <stop offset="100%" stop-color="#2C2E33" />
+    </linearGradient>
+    <pattern id="chess-pattern" patternUnits="userSpaceOnUse" width="100" height="100">
+      <rect width="50" height="50" fill="#ffffff" fill-opacity="0.03" />
+      <rect width="50" height="50" x="50" y="50" fill="#ffffff" fill-opacity="0.03" />
+    </pattern>
+    <symbol id="pawn" viewBox="0 0 24 24">
+      <path d="M12,4a2,2,0,0,0-2,2,2,2,0,0,0,2,2,2,2,0,0,0,2-2A2,2,0,0,0,12,4M9,10a3,3,0,0,0-3,3v5H6v2H18V18h0V13a3,3,0,0,0-3-3H9Z" />
+    </symbol>
+    <symbol id="knight" viewBox="0 0 24 24">
+      <path d="M19,22H5V20H19V22M13,2V2C11.75,2 10.58,2.62 9.89,3.66L7,8L9,10L11.06,8.63C11.5,8.32 12.14,8.44 12.45,8.9C12.47,8.93 12.5,8.96 12.5,9V9C12.8,9.59 12.69,10.3 12.22,10.77L7.42,15.57C6.87,16.13 6.87,17.03 7.43,17.58C7.69,17.84 8.05,18 8.42,18H17V6A4,4 0 0,0 13,2Z" />
+    </symbol>
+    <symbol id="bishop" viewBox="0 0 24 24">
+      <path d="M19,22H5V20H19V22M17.16,8.26C18.22,9.63 18.86,11.28 19,13C19,15.76 15.87,18 12,18C8.13,18 5,15.76 5,13C5,10.62 7.33,6.39 10.46,5.27C10.16,4.91 10,4.46 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.46 13.84,4.91 13.54,5.27C14.4,5.6 15.18,6.1 15.84,6.74L11.29,11.29L12.71,12.71L17.16,8.26Z" />
+    </symbol>
+    <symbol id="rook" viewBox="0 0 24 24">
+      <path d="M5,20H19V22H5V20M17,2V5H15V2H13V5H11V2H9V5H7V2H5V8H7V18H17V8H19V2H17Z" />
+    </symbol>
+    <symbol id="queen" viewBox="0 0 24 24">
+      <path d="M18,3A2,2 0 0,1 20,5C20,5.81 19.5,6.5 18.83,6.82L17,13.15V18H7V13.15L5.17,6.82C4.5,6.5 4,5.81 4,5A2,2 0 0,1 6,3A2,2 0 0,1 8,5C8,5.5 7.82,5.95 7.5,6.3L10.3,9.35L10.83,5.62C10.33,5.26 10,4.67 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.67 13.67,5.26 13.17,5.62L13.7,9.35L16.47,6.29C16.18,5.94 16,5.5 16,5A2,2 0 0,1 18,3M5,20H19V22H5V20Z" />
+    </symbol>
+    <symbol id="king" viewBox="0 0 24 24">
+      <path d="M19,22H5V20H19V22M17,18H7V16H17V18M19,6.28V2H17V5.5L15,4L13,5.5V2H11V5.5L9,4L7,5.5V2H5V6.28C3.8,7.44 3,9.13 3,11C3,13.36 4.14,15.43 6,16.59V14H18V16.59C19.86,15.43 21,13.36 21,11C21,9.13 20.2,7.44 19,6.28Z" />
+    </symbol>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#gradient)" />
+  <rect width="100%" height="100%" fill="url(#chess-pattern)" />
+  
+  <!-- Chess pieces scattered around as decoration -->
+  <g fill="#ffffff" opacity="0.05">
+    <use href="#pawn" x="100" y="200" width="100" height="100" />
+    <use href="#knight" x="300" y="400" width="120" height="120" />
+    <use href="#bishop" x="700" y="100" width="150" height="150" />
+    <use href="#rook" x="1100" y="300" width="130" height="130" />
+    <use href="#queen" x="500" y="600" width="140" height="140" />
+    <use href="#king" x="900" y="500" width="160" height="160" />
+    <use href="#pawn" x="1300" y="650" width="90" height="90" />
+    <use href="#knight" x="200" y="700" width="110" height="110" />
+  </g>
+</svg>
