@@ -58,24 +58,26 @@ app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # Security Headers Middleware
-# class SecurityHeadersMiddleware(BaseHTTPMiddleware):
-#     async def dispatch(self, request, call_next):
-#         response = await call_next(request)
-#         response.headers["X-Content-Type-Options"] = "nosniff"
-#         response.headers["X-Frame-Options"] = "DENY"
-#         response.headers["X-XSS-Protection"] = "1; mode=block"
-#         response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
-#         return response
+class SecurityHeadersMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request, call_next):
+        response = await call_next(request)
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["X-XSS-Protection"] = "1; mode=block"
+        response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+        return response
 
-# app.add_middleware(SecurityHeadersMiddleware)
+app.add_middleware(SecurityHeadersMiddleware)
 
 # Trusted Host (Prevent Host Header Attacks)
-# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
-# app.add_middleware(TrustedHostMiddleware, allowed_hosts=ALLOWED_HOSTS)
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+app.add_middleware(TrustedHostMiddleware, allowed_hosts=ALLOWED_HOSTS)
 
 # CORS middleware
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
-origins = [FRONTEND_URL, "http://localhost:5173", "http://localhost:8000"]
+origins = [FRONTEND_URL]
+if os.getenv("ENVIRONMENT", "development") != "production":
+    origins.extend(["http://localhost:5173", "http://localhost:8000"])
 
 
 app.add_middleware(
